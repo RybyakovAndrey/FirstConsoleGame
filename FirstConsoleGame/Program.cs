@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FirstConsoleGame.core.Architecture;
 
 namespace FirstConsoleGame
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static IEntryPoint EntryPoint { get; set; }
+
+        public static void Main()
         {
+            EntryPoint.Initialization();
         }
     }
 }
