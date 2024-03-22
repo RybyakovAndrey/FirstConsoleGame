@@ -6,12 +6,7 @@ namespace FirstConsoleGameTest.TestAcrhitecture
 {
     public class EntryPointTest
     {
-        [SetUp]
-        public void Setup()
-        {
-
-        }
-
+       
         [TestCase]
         public void EntryPointTestInit()
         {

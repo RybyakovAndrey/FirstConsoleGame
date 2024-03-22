@@ -34,9 +34,13 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\core\Architecture\Application.cs" />
     <Compile Include="src\core\Architecture\Domain\IBaseComponent.cs" />
     <Compile Include="src\core\Architecture\Domain\IGameObject.cs" />
+    <Compile Include="src\core\Architecture\EntryPoint.cs" />
+    <Compile Include="src\core\Architecture\IApplication.cs" />
     <Compile Include="src\core\Architecture\IEntryPoint.cs" />
+    <Compile Include="src\core\Architecture\ILayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
