@@ -7,51 +7,62 @@ namespace FirstConsoleGameTest.TestAcrhitecture
     {
 
         [TestCase]
-        public void ApplicationTestInit()
+        public void ApplicationTestLyaerCalledSartAfterAddLayer()
         {
-            var application = new IFakeApplicaion.Base();
-            IEntryPoint entrypoint = new EntryPoint(application);
-            entrypoint.Initialization();
-            application.CheckCalledInitTimes(1);
+            IApplication application = new Application();
+            var layer = new IFakeLayer.Base();
+
+            application.AddLayer(layer);
+            layer.CheckCalledStartTimes(1);
+            
         }
+
+        [TestCase]
+        public void ApplicationTestLyaerCalledDestroyAfterRemoveLayer()
+        {
+            IApplication application = new Application();
+            var layer = new IFakeLayer.Base();
+
+            application.RemoveLayer(layer);
+            layer.CheckCalledDestroyTimes(1);
+        }
+
     }
 
-    internal interface IFakeApplicaion : IApplication
+
+    internal interface IFakeLayer : ILayer
     {
-        void CheckCalledInitTimes(int times);
-       
-        internal class Base() : IFakeApplicaion
+        void CheckCalledStartTimes(int times);
+        void CheckCalledDestroyTimes(int times);
+        internal class Base() : IFakeLayer
         {
-            private int m_timesInit = 0;
+            private int m_timesStartCalled = 0;
+            private int m_timesDestroyCalled = 0;
             
-            public void AddLayer(ILayer layer)
+            public void CheckCalledDestroyTimes(int times)
             {
-                
+                Assert.That(m_timesDestroyCalled, Is.EqualTo(times));
             }
 
-            public void CheckCalledInitTimes(int times)
+            public void CheckCalledStartTimes(int times)
             {
-                Assert.That(m_timesInit, Is.EqualTo(times));
+                Assert.That(m_timesStartCalled, Is.EqualTo(times));
             }
 
-            
-
-            public void Initialization()
+            public void Destroy()
             {
-                m_timesInit++;
+                m_timesDestroyCalled++;
             }
 
-            public void RemoveLayer(ILayer layer)
+            public void Start()
             {
-                
+                m_timesStartCalled++;
             }
 
-            public void Run()
+            public void Update()
             {
                 
             }
         }
     }
-
-    
 }

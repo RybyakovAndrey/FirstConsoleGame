@@ -11,5 +11,7 @@ namespace FirstConsoleGame.core.Architecture
         void AddLayer(ILayer layer);
 
         void RemoveLayer(ILayer layer);
+
+        void Close();
     }
 }

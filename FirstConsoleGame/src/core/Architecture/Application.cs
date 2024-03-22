@@ -8,6 +8,11 @@ namespace FirstConsoleGame.core.Architecture
            
         }
 
+        public void Close()
+        {
+            
+        }
+
         public void Initialization()
         {
             
