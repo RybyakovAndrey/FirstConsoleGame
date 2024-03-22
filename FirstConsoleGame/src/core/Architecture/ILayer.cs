@@ -7,5 +7,6 @@ namespace FirstConsoleGame.core.Architecture
 
         void Destroy();
 
+        void Update();
     }
 }

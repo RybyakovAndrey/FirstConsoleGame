@@ -19,10 +19,11 @@ namespace FirstConsoleGameTest.TestAcrhitecture
     internal interface IFakeApplicaion : IApplication
     {
         void CheckCalledInitTimes(int times);
-        
+       
         internal class Base() : IFakeApplicaion
         {
-            private int m_times = 0;
+            private int m_timesInit = 0;
+            
             public void AddLayer(ILayer layer)
             {
                 
@@ -30,17 +31,19 @@ namespace FirstConsoleGameTest.TestAcrhitecture
 
             public void CheckCalledInitTimes(int times)
             {
-                Assert.That(m_times, Is.EqualTo(times));
+                Assert.That(m_timesInit, Is.EqualTo(times));
             }
+
+            
 
             public void Initialization()
             {
-                m_times++;
+                m_timesInit++;
             }
 
             public void RemoveLayer(ILayer layer)
             {
-               
+                
             }
 
             public void Run()

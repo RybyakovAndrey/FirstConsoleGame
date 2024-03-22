@@ -38,7 +38,7 @@ namespace FirstConsoleGameTest.TestAcrhitecture
         {
             private int m_timesStartCalled = 0;
             private int m_timesDestroyCalled = 0;
-
+            
             public void CheckCalledDestroyTimes(int times)
             {
                 Assert.That(m_timesDestroyCalled, Is.EqualTo(times));
@@ -57,6 +57,11 @@ namespace FirstConsoleGameTest.TestAcrhitecture
             public void Start()
             {
                 m_timesStartCalled++;
+            }
+
+            public void Update()
+            {
+                
             }
         }
     }

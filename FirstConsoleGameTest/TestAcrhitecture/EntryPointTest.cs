@@ -14,7 +14,6 @@ namespace FirstConsoleGameTest.TestAcrhitecture
             Program.EntryPoint = entryPoint;
             Program.Main();
             entryPoint.CheckCalledTimes(1);
-
         }
 
         [TestCase]
