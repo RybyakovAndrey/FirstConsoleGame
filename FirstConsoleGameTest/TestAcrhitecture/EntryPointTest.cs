@@ -2,7 +2,7 @@ using FirstConsoleGame;
 using FirstConsoleGame.core.Architecture;
 using NUnit.Framework;
 
-namespace FirstConsoleGameTest
+namespace FirstConsoleGameTest.TestAcrhitecture
 {
     public class EntryPointTest
     {
@@ -15,11 +15,18 @@ namespace FirstConsoleGameTest
         [TestCase]
         public void EntryPointTestInit()
         {
-            var entryPoint  = new IFakeEntryPoint.Base();
+            var entryPoint = new IFakeEntryPoint.Base();
             Program.EntryPoint = entryPoint;
             Program.Main();
             entryPoint.CheckCalledTimes(1);
-            
+
+        }
+
+        [TestCase]
+        public void EntryPointIsNullTest()
+        {
+            Program.EntryPoint = null;
+            Assert.Throws<InvalidOperationException>(() => Program.Main(), "don't have entryPoint");
         }
     }
 
