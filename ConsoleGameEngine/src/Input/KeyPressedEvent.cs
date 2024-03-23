@@ -1,4 +1,4 @@
-﻿using ConsoleGameEngine.Domain;
+﻿using ConsoleGameEngine.Domain.Events;
 
 namespace ConsoleGameEngine.Input
 {

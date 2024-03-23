@@ -1,5 +1,5 @@
 ﻿
-namespace ConsoleGameEngine.Domain
+namespace ConsoleGameEngine.Domain.Events
 {
     public enum EventType : byte
     {

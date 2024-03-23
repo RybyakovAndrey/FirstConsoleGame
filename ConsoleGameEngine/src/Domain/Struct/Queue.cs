@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConsoleGameEngine.Domain
+namespace ConsoleGameEngine.Domain.Struct
 {
     public class Queue<T>
     {

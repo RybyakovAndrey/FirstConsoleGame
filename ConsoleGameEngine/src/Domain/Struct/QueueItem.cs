@@ -1,5 +1,5 @@
 ﻿
-namespace ConsoleGameEngine.Domain
+namespace ConsoleGameEngine.Domain.Struct
 {
     internal class QueueItem<T>
     {

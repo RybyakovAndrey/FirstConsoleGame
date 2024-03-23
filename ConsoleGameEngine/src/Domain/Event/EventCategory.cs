@@ -1,5 +1,5 @@
 ﻿
-namespace ConsoleGameEngine.Domain
+namespace ConsoleGameEngine.Domain.Events
 {
     // бинарные значиния фыступает в роле флага
     public enum EventCategory : byte

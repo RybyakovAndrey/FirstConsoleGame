@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 
-
 namespace ConsoleGameEngineTest.Domain
 {
     public class QueueTest
@@ -8,14 +7,14 @@ namespace ConsoleGameEngineTest.Domain
         [TestCase]
         public void QueueEmptyTest()
         {
-            ConsoleGameEngine.Domain.Queue<string> queue = new ConsoleGameEngine.Domain.Queue<string>();
+            ConsoleGameEngine.Domain.Struct.Queue<string> queue = new ConsoleGameEngine.Domain.Struct.Queue<string>();
             Assert.That(queue.Dequeue(), Is.EqualTo(default(string)));
         }
 
         [TestCase]
         public void QueueIntTest()
         {
-            ConsoleGameEngine.Domain.Queue<int> queue = new ConsoleGameEngine.Domain.Queue<int>();
+            ConsoleGameEngine.Domain.Struct.Queue<int> queue = new ConsoleGameEngine.Domain.Struct.Queue<int>();
             queue.Enqueue(1);
             queue.Enqueue(2);
             queue.Enqueue(3);
@@ -28,7 +27,7 @@ namespace ConsoleGameEngineTest.Domain
         [TestCase]
         public void QueueStringTest()
         {
-            ConsoleGameEngine.Domain.Queue<string> queue = new ConsoleGameEngine.Domain.Queue<string>();
+            ConsoleGameEngine.Domain.Struct.Queue<string> queue = new ConsoleGameEngine.Domain.Struct.Queue<string>();
             queue.Enqueue("abs");
             queue.Enqueue("isp");
             queue.Enqueue("data");

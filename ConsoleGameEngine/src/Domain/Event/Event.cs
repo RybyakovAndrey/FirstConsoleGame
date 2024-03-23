@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConsoleGameEngine.Domain
+namespace ConsoleGameEngine.Domain.Events
 {
     public abstract class Event
     {

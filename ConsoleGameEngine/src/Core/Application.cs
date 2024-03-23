@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Threading;
 using ConsoleGameEngine.Domain;
+using ConsoleGameEngine.Domain.Events;
 using ConsoleGameEngine.Input;
+
 
 namespace ConsoleGameEngine.Core
 {

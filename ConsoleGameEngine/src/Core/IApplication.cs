@@ -1,4 +1,5 @@
-﻿using ConsoleGameEngine.Domain;
+﻿using ConsoleGameEngine.Domain.Events;
+using ConsoleGameEngine.Domain;
 
 namespace ConsoleGameEngine.Core
 {

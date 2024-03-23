@@ -1,4 +1,4 @@
-﻿using ConsoleGameEngine.Domain;
+﻿using ConsoleGameEngine.Domain.Events;
 using ConsoleGameEngine.Input.Factories;
 using ConsoleGameEngine.Input.Vendor.CsharpConsole;
 using System;
@@ -27,7 +27,7 @@ namespace ConsoleGameEngine.Input
         {
             while (true)
             {
-                m_currentKey = Console.ReadKey().Key;
+                m_currentKey = Console.ReadKey(true).Key;
 
                 var mapperKeyCode = GetMapperFactory().GetMapperKeyCode();
                 var keyPressed = new KeyPressedEvent(mapperKeyCode.GetKeyCode());
