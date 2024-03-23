@@ -1,15 +1,14 @@
-﻿using FirstConsoleGame.core.Architecture;
+﻿using ConsoleGameEngine.Core;
 
 namespace FirstConsoleGame
 {
     public class Program
     {
-        public static IEntryPoint EntryPoint { get; set; }
 
         public static void Main()
         {
-            
             EntryPoint.Initialization();
+            EntryPoint.Main();
         }
     }
 }
