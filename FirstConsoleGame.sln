@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstConsoleGame", "FirstConsoleGame\FirstConsoleGame.csproj", "{888A56A6-02FF-49E0-BEA4-198A5876066F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstConsoleGameTest", "FirstConsoleGameTest\FirstConsoleGameTest.csproj", "{35057894-A809-4AC9-A945-0166CDD14F12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstConsoleGameTest", "FirstConsoleGameTest\FirstConsoleGameTest.csproj", "{35057894-A809-4AC9-A945-0166CDD14F12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleGameEngine", "ConsoleGameEngine\ConsoleGameEngine.csproj", "{B29C0540-562A-4F78-83C4-6A7B468E9290}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,9 @@ Global
 		{35057894-A809-4AC9-A945-0166CDD14F12}.Debug|x64.Build.0 = Debug|x64
 		{35057894-A809-4AC9-A945-0166CDD14F12}.Release|x64.ActiveCfg = Release|x64
 		{35057894-A809-4AC9-A945-0166CDD14F12}.Release|x64.Build.0 = Release|x64
+		{B29C0540-562A-4F78-83C4-6A7B468E9290}.Debug|x64.ActiveCfg = Debug|x64
+		{B29C0540-562A-4F78-83C4-6A7B468E9290}.Debug|x64.Build.0 = Debug|x64
+		{B29C0540-562A-4F78-83C4-6A7B468E9290}.Release|x64.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
