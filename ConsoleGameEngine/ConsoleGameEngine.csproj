@@ -37,7 +37,18 @@
     <Compile Include="src\Core\EntryPoint.cs" />
     <Compile Include="src\Core\IApplication.cs" />
     <Compile Include="src\Domain\Event.cs" />
+    <Compile Include="src\Domain\EventCategory.cs" />
+    <Compile Include="src\Domain\EventType.cs" />
     <Compile Include="src\Domain\ILayer.cs" />
+    <Compile Include="src\Domain\Queue.cs" />
+    <Compile Include="src\Domain\QueueItem.cs" />
+    <Compile Include="src\Input\Factories\IMapperKeyCode.cs" />
+    <Compile Include="src\Input\InputSystem.cs" />
+    <Compile Include="src\Input\KeyCode.cs" />
+    <Compile Include="src\Input\Factories\MapperKeyCodeFactory.cs" />
+    <Compile Include="src\Input\KeyPressedEvent.cs" />
+    <Compile Include="src\Input\Vendor\CsharpConsole\CsharpConsoleMapperKeyCode.cs" />
+    <Compile Include="src\Input\Vendor\CsharpConsole\CsharpConsoleMapperKeyCodeFactory.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
