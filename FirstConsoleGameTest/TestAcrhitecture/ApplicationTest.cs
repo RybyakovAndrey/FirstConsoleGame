@@ -9,7 +9,7 @@ namespace FirstConsoleGameTest.TestAcrhitecture
         [TestCase]
         public void ApplicationTestLyaerCalledSartAfterAddLayer()
         {
-            IApplication application = new Application();
+            var application = new Application();
             var layer = new IFakeLayer.Base();
 
             application.AddLayer(layer);
@@ -20,11 +20,23 @@ namespace FirstConsoleGameTest.TestAcrhitecture
         [TestCase]
         public void ApplicationTestLyaerCalledDestroyAfterRemoveLayer()
         {
-            IApplication application = new Application();
+            var application = new Application();
             var layer = new IFakeLayer.Base();
 
             application.RemoveLayer(layer);
             layer.CheckCalledDestroyTimes(1);
+        }
+
+        [TestCase]
+        public void ApplicationTestCloseTest()
+        {
+            var application = new Application();
+
+            application.Initialization();
+            application.Close();
+            application.Run();
+
+            Assert.Pass();
         }
 
     }
@@ -59,7 +71,7 @@ namespace FirstConsoleGameTest.TestAcrhitecture
                 m_timesStartCalled++;
             }
 
-            public void Update()
+            public void Update(float deltaTime)
             {
                 
             }

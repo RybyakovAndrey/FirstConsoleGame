@@ -7,6 +7,6 @@ namespace FirstConsoleGame.core.Architecture
 
         void Destroy();
 
-        void Update();
+        void Update(float deltaTime);
     }
 }
