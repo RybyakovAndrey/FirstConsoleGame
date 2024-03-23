@@ -35,6 +35,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\core\Architecture\Application.cs" />
+    <Compile Include="src\core\Architecture\Domain\GameObject.cs" />
     <Compile Include="src\core\Architecture\Domain\IBaseComponent.cs" />
     <Compile Include="src\core\Architecture\Domain\IGameObject.cs" />
     <Compile Include="src\core\Architecture\EntryPoint.cs" />

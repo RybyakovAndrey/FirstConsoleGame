@@ -3,6 +3,7 @@ namespace FirstConsoleGame.core.Architecture
 {
     public class Application : IApplication
     {
+        
         public void AddLayer(ILayer layer)
         {
            
@@ -11,6 +12,11 @@ namespace FirstConsoleGame.core.Architecture
         public void Close()
         {
             
+        }
+
+        public ILayer GetLayer(int index)
+        {
+            throw new System.Exception();
         }
 
         public void Initialization()

@@ -87,6 +87,11 @@ namespace FirstConsoleGameTest.TestAcrhitecture
                 
             }
 
+            public ILayer GetLayer(int index)
+            {
+                throw new NotImplementedException();
+            }
+
             public void Initialization()
             {
                 m_timesInit++;

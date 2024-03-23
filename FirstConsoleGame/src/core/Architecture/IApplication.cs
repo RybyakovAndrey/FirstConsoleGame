@@ -10,6 +10,8 @@ namespace FirstConsoleGame.core.Architecture
 
         void AddLayer(ILayer layer);
 
+        ILayer GetLayer(int index);
+
         void RemoveLayer(ILayer layer);
 
         void Close();
