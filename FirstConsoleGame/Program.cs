@@ -8,6 +8,7 @@ namespace FirstConsoleGame
         public static void Main()
         {
             EntryPoint.Initialization();
+            EntryPoint.application = new Game();
             EntryPoint.Main();
         }
     }

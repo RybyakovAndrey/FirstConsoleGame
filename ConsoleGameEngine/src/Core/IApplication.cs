@@ -4,7 +4,6 @@ namespace ConsoleGameEngine.Core
 {
     public interface IApplication
     {
-        void Inintialization();
         void Run();
 
         void OnEvent(Event e);

@@ -34,6 +34,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Game.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -44,8 +45,6 @@
       <Name>ConsoleGameEngine</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

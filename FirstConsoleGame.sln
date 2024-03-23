@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstConsoleGameTest", "Fir
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleGameEngine", "ConsoleGameEngine\ConsoleGameEngine.csproj", "{B29C0540-562A-4F78-83C4-6A7B468E9290}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleGameEngineTest", "ConsoleGameEngineTest\ConsoleGameEngineTest.csproj", "{07CBA839-98BF-4391-85A5-A3C6C4292568}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -26,6 +28,9 @@ Global
 		{B29C0540-562A-4F78-83C4-6A7B468E9290}.Debug|x64.ActiveCfg = Debug|x64
 		{B29C0540-562A-4F78-83C4-6A7B468E9290}.Debug|x64.Build.0 = Debug|x64
 		{B29C0540-562A-4F78-83C4-6A7B468E9290}.Release|x64.ActiveCfg = Release|x64
+		{07CBA839-98BF-4391-85A5-A3C6C4292568}.Debug|x64.ActiveCfg = Debug|x64
+		{07CBA839-98BF-4391-85A5-A3C6C4292568}.Debug|x64.Build.0 = Debug|x64
+		{07CBA839-98BF-4391-85A5-A3C6C4292568}.Release|x64.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
