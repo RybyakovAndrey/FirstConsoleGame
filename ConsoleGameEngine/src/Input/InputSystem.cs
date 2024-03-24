@@ -7,7 +7,7 @@ using System.Threading;
 namespace ConsoleGameEngine.Input
 {
     public delegate void OnPressedEvent(Event e);
-    public class InputSystem
+    public sealed class InputSystem
     {
         private OnPressedEvent m_onPressedKey;
         private ConsoleKey m_currentKey;

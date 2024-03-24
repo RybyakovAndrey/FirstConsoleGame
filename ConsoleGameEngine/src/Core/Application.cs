@@ -2,6 +2,7 @@
 using System.Threading;
 using ConsoleGameEngine.Domain;
 using ConsoleGameEngine.Domain.Events;
+using ConsoleGameEngine.Domain.Struct;
 using ConsoleGameEngine.Input;
 
 
@@ -11,9 +12,13 @@ namespace ConsoleGameEngine.Core
     {
         protected InputSystem m_inputSystem;
         private bool m_isRunning;
+        private LayerStack m_layerStack;
         public Application()
         {
             m_isRunning = true;
+            m_layerStack = new LayerStack();
+
+            // ----- Init System --------
             m_inputSystem = new InputSystem(OnEvent);
 
             Console.WriteLine("Create application engine");
@@ -35,12 +40,12 @@ namespace ConsoleGameEngine.Core
 
         public void PopLayer(ILayer layer)
         {
-            
+            m_layerStack.Pop(layer);
         }
 
         public void PushLayer(ILayer layer)
         {
-           
+            m_layerStack.Push(layer);
         }
 
         public void Run()

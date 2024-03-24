@@ -3,7 +3,7 @@ using System;
 
 namespace ConsoleGameEngine.Input.Vendor.CsharpConsole
 {
-    public class CsharpConsoleMapperKeyCode : IMapperKeyCode
+    public sealed class CsharpConsoleMapperKeyCode : IMapperKeyCode
     {
         private ConsoleKey m_key;
         public CsharpConsoleMapperKeyCode(ConsoleKey key) 

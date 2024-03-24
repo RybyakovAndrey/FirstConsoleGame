@@ -2,7 +2,7 @@
 
 namespace ConsoleGameEngine.Input
 {
-    public class KeyPressedEvent : Event
+    public sealed class KeyPressedEvent : Event
     {
         private KeyCode m_key;
 
