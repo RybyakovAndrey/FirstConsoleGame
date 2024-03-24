@@ -43,14 +43,16 @@ namespace ConsoleGameEngine.Core
 
         public void PopLayer(ILayer layer)
         {
-            layer.Destroy();
+
+            layer?.Destroy();
             m_layerStack.Pop(layer);
         }
 
         public void PushLayer(ILayer layer)
         {
+            
             m_layerStack.Push(layer);
-            layer.Start();
+            layer?.Start();
         }
 
         public void Run()
