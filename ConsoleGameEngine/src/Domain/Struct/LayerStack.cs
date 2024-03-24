@@ -27,6 +27,11 @@ namespace ConsoleGameEngine.Domain.Struct
             m_stack.Add(layer);
         }
 
+        public void Clear()
+        {
+            m_stack.Clear();
+        }
+
         public IEnumerator<ILayer> GetEnumerator()
         {
             for(int i = 0; i < m_stack.Count; i++)

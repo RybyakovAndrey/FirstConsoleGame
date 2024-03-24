@@ -7,27 +7,38 @@ namespace ConsoleGameEngine.Domain
 {
     public abstract class BaseLayer : ILayer
     {
-        private List<IGameObject> m_StaticGameObjects;
-        private List<IGameObject> m_DynamicGameObjects;
+        private List<IGameObject> m_staticGameObjects;
+        private List<IGameObject> m_dynamicGameObjects;
 
         private string m_nameLayer;
         public BaseLayer(string name)
         {
             m_nameLayer = name;
+            m_staticGameObjects = new List<IGameObject>();
+            m_dynamicGameObjects = new List<IGameObject>();
         }
 
         public abstract void Start();
-        public abstract void Destroy();
+        public virtual void Destroy()
+        {
+            foreach (var gameObject in m_staticGameObjects)
+                gameObject.Destroy();
+            m_staticGameObjects.Clear();
+
+            foreach(var gameObject in m_dynamicGameObjects)
+                gameObject.Destroy();
+            m_dynamicGameObjects.Clear();
+        }
 
         public virtual void Update(float deltaTime)
         {
-            foreach (var gameObject in m_DynamicGameObjects)
+            foreach (var gameObject in m_dynamicGameObjects)
             {
                 gameObject.Update(deltaTime);
                 RenderGameObject(gameObject);
             }
 
-            foreach (var gameObject in m_StaticGameObjects)
+            foreach (var gameObject in m_staticGameObjects)
             {
                 RenderGameObject(gameObject);
             }
@@ -35,7 +46,7 @@ namespace ConsoleGameEngine.Domain
 
         public virtual void OnEvent(Event e)
         {
-            foreach (var gameObject in m_DynamicGameObjects)
+            foreach (var gameObject in m_dynamicGameObjects)
             {
                 gameObject.OnEvent(e);
             }
@@ -46,21 +57,21 @@ namespace ConsoleGameEngine.Domain
             gameObject.Destroy();
             if (isStatic)
             {
-                m_StaticGameObjects.Remove(gameObject);
+                m_staticGameObjects.Remove(gameObject);
                 return;
             }
-            m_DynamicGameObjects.Remove(gameObject);
+            m_dynamicGameObjects.Remove(gameObject);
         }
 
         public void AddGameObject(IGameObject gameObject, bool isStatic)
         {  
             if (isStatic)
             {
-                m_StaticGameObjects.Add(gameObject);
+                m_staticGameObjects.Add(gameObject);
                 gameObject.Start();
                 return;
             }
-            m_DynamicGameObjects.Add(gameObject);
+            m_dynamicGameObjects.Add(gameObject);
             gameObject.Start();
         }
 

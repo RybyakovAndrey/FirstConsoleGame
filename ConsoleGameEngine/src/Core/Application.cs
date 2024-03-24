@@ -26,6 +26,11 @@ namespace ConsoleGameEngine.Core
         public virtual void Destroy()
         {
             m_inputSystem.Destroy();
+
+            foreach (var layer in m_layerStack)
+                layer.Destroy();
+            m_layerStack.Clear();
+
             Console.WriteLine("Destroy application");
         }
 
@@ -63,7 +68,7 @@ namespace ConsoleGameEngine.Core
                     layer.Update(0);
 
                 Console.WriteLine("Update");
-                Thread.Sleep(500);
+                Thread.Sleep(10);
             }
         }
 

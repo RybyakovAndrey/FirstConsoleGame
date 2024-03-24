@@ -19,6 +19,7 @@ namespace FirstConsoleGame
 
         private void Initialization()
         {
+            PushLayer(new ExampleLayer());
             Console.WriteLine("Init Game");
         }
 

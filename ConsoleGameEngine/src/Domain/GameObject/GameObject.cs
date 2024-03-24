@@ -15,7 +15,12 @@ namespace ConsoleGameEngine.Domain.GameObject
 
         public abstract void Start();
 
-        public abstract void Destroy();
+        public virtual void Destroy()
+        {
+            foreach(var component in m_components)
+                component.Destroy();
+            m_components.Clear();
+        }
 
         public virtual void Update(float deltaTime)
         {
