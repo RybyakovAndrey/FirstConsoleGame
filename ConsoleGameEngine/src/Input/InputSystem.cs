@@ -11,16 +11,23 @@ namespace ConsoleGameEngine.Input
     {
         private OnPressedEvent m_onPressedKey;
         private ConsoleKey m_currentKey;
+        private Thread m_thread;
         public InputSystem(OnPressedEvent callback)
         {
             m_onPressedKey = callback;
             m_currentKey = ConsoleKey.NoName;
 
             ThreadStart threadStart = new ThreadStart(UpdateInputSystem);
-            Thread thread = new Thread(threadStart);
-            thread.Start();
+            m_thread = new Thread(threadStart);
+            m_thread.Start();
 
             Console.WriteLine("Init InputSystem");
+        }
+
+        public void Destroy()
+        {
+            m_thread.Abort();
+            Console.WriteLine("Distroy InputSystem");
         }
 
         private void UpdateInputSystem()

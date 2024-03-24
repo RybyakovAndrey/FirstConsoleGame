@@ -10,6 +10,7 @@ namespace ConsoleGameEngine.Input
         E,
         W,
         Q,
-        B
+        B,
+        Escape
     }
 }

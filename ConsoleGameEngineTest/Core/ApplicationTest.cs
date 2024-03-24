@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using ConsoleGameEngine.Core;
+using NUnit.Framework;
 
 namespace ConsoleGameEngineTest.Core
 {
@@ -6,4 +7,11 @@ namespace ConsoleGameEngineTest.Core
     {
 
     }
+
+    internal class FakeApplication : Application
+    {
+
+
+    }
+
 }

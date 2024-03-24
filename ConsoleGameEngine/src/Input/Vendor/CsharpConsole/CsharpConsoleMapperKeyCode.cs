@@ -34,6 +34,8 @@ namespace ConsoleGameEngine.Input.Vendor.CsharpConsole
                     return KeyCode.W;
                 case ConsoleKey.Q:
                     return KeyCode.Q;
+                case ConsoleKey.Escape:
+                    return KeyCode.Escape;
                 default:
                     return KeyCode.None;
             }

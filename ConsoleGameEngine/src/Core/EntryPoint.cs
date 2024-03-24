@@ -10,10 +10,15 @@ namespace ConsoleGameEngine.Core
             Console.WriteLine("Init Engine");
         }
 
+        public static void Destroy()
+        {
+            application.Destroy();
+        }
+
         public static void Main()
         {
             application.Run();
-
+            Destroy();
         }
 
     }
