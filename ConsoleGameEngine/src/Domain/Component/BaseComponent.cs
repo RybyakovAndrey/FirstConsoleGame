@@ -5,7 +5,7 @@ namespace ConsoleGameEngine.Domain.Component
 {
     public abstract class BaseComponent : IComponent
     {
-        protected IGameObject gameObject;
+        public IGameObject GameObject { get; set; }
         private bool m_activeComponent;
         public BaseComponent()
         {
