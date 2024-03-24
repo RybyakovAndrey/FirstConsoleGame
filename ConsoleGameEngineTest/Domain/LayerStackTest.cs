@@ -14,6 +14,8 @@ namespace ConsoleGameEngineTest.Domain
             var layerStack = new LayerStack();
             layerStack.Push(null);
             Assert.Pass();
+
+            //TODO Check Log
         }
 
         [TestCase]
@@ -22,6 +24,8 @@ namespace ConsoleGameEngineTest.Domain
             var layerStack = new LayerStack();
             layerStack.Push(null);
             Assert.Pass();
+
+            //TODO Check Log
         }
 
         [TestCase]
@@ -52,7 +56,40 @@ namespace ConsoleGameEngineTest.Domain
             layerStack.Pop(fakeLayer2);
             CheckStackInHaveLayer(layerStack, layers);
         }
+        [TestCase]
+        public void CheckCalledPopLayerInLayerStack2()
+        {
+            var layerStack = new LayerStack();
+            var fakeLayer1 = new IFakeLayer.Base(1);
+            var fakeLayer2 = new IFakeLayer.Base(2);
+            var fakeLayer3 = new IFakeLayer.Base(3);
+            var layers = new ILayer[] { fakeLayer3 };
+            layerStack.Push(fakeLayer1);
+            layerStack.Push(fakeLayer2);
+            layerStack.Push(fakeLayer3);
+            layerStack.Pop(fakeLayer2);
+            layerStack.Pop(fakeLayer1);
+            layerStack.Pop(fakeLayer1);
+            CheckStackInHaveLayer(layerStack, layers);
+        }
 
+        [TestCase]
+        public void CheckCalledPopLayerInLayerStack3()
+        {
+            var layerStack = new LayerStack();
+            var fakeLayer1 = new IFakeLayer.Base(1);
+            var fakeLayer2 = new IFakeLayer.Base(2);
+            var fakeLayer3 = new IFakeLayer.Base(3);
+            var layers = new ILayer[] {  };
+            layerStack.Push(fakeLayer1);
+            layerStack.Push(fakeLayer2);
+            layerStack.Push(fakeLayer3);
+            layerStack.Pop(fakeLayer2);
+            layerStack.Pop(fakeLayer1);
+            layerStack.Pop(fakeLayer1);
+            layerStack.Pop(fakeLayer3);
+            CheckStackInHaveLayer(layerStack, layers);
+        }
 
         private void CheckStackInHaveLayer(LayerStack layerStack, ILayer[] layers)
         {
@@ -61,6 +98,8 @@ namespace ConsoleGameEngineTest.Domain
             {
                 Assert.IsTrue(((IFakeLayer)layer).CheckEquals((IFakeLayer)layers[index++]));
             }
+
+            Assert.Pass();
         }
 
     }
@@ -72,13 +111,14 @@ namespace ConsoleGameEngineTest.Domain
         void CheckCalledStart(int times);
         void CheckCalledDestroy(int times);
         bool CheckEquals(IFakeLayer layer);
-        internal class Base() : IFakeLayer
+        internal class Base : IFakeLayer
         {
             public int Index { get; }
             private int m_startTimes;
             private int m_destroyTimes;
-             
-            internal Base(int index) : this() 
+
+            internal Base() : this(1) { }
+            internal Base(int index)
             {
                 Index = index;
 
@@ -102,7 +142,7 @@ namespace ConsoleGameEngineTest.Domain
 
             public bool CheckEquals(IFakeLayer layer)
             {
-                return Index == layer.Index;
+                return Index.Equals(layer.Index);
             }
 
             public void Destroy()

@@ -22,6 +22,7 @@ namespace ConsoleGameEngineTest.Core
             app.PopLayer(null);
             Assert.Pass();
         }
+
         [TestCase]
         public void CheckCalledPopLayerWhenDontHaveLayerInStack()
         {

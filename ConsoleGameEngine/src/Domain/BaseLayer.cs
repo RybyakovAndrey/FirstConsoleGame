@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace ConsoleGameEngine.Domain
 {
-    public class BaseLayer : ILayer
+    public abstract class BaseLayer : ILayer
     {
         private List<IGameObject> m_StaticGameObjects;
         private List<IGameObject> m_DynamicGameObjects;
@@ -15,17 +15,11 @@ namespace ConsoleGameEngine.Domain
         {
             m_nameLayer = name;
         }
-        public void Start()
-        {
 
-        }
+        public abstract void Start();
+        public abstract void Destroy();
 
-        public void Destroy()
-        {
-            
-        }
-
-        public void Update(float deltaTime)
+        public virtual void Update(float deltaTime)
         {
             foreach (var gameObject in m_DynamicGameObjects)
             {
@@ -39,7 +33,7 @@ namespace ConsoleGameEngine.Domain
             }
         }
 
-        public void OnEvent(Event e)
+        public virtual void OnEvent(Event e)
         {
             foreach (var gameObject in m_DynamicGameObjects)
             {

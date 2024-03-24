@@ -3,7 +3,7 @@ using ConsoleGameEngine.Domain.Events;
 
 namespace ConsoleGameEngine.Graphics
 {
-    internal class RenderComponent : BaseComponent
+    public class RenderComponent : BaseComponent
     {
         
         public override void Start()

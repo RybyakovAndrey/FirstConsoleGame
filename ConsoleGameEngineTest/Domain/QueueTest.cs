@@ -7,14 +7,14 @@ namespace ConsoleGameEngineTest.Domain
         [TestCase]
         public void QueueEmptyTest()
         {
-            ConsoleGameEngine.Domain.Struct.Queue<string> queue = new ConsoleGameEngine.Domain.Struct.Queue<string>();
+            var queue = new ConsoleGameEngine.Domain.Struct.Queue<string>();
             Assert.That(queue.Dequeue(), Is.EqualTo(default(string)));
         }
 
         [TestCase]
         public void QueueIntTest()
         {
-            ConsoleGameEngine.Domain.Struct.Queue<int> queue = new ConsoleGameEngine.Domain.Struct.Queue<int>();
+            var queue = new ConsoleGameEngine.Domain.Struct.Queue<int>();
             queue.Enqueue(1);
             queue.Enqueue(2);
             queue.Enqueue(3);
@@ -27,7 +27,7 @@ namespace ConsoleGameEngineTest.Domain
         [TestCase]
         public void QueueStringTest()
         {
-            ConsoleGameEngine.Domain.Struct.Queue<string> queue = new ConsoleGameEngine.Domain.Struct.Queue<string>();
+            var queue = new ConsoleGameEngine.Domain.Struct.Queue<string>();
             queue.Enqueue("abs");
             queue.Enqueue("isp");
             queue.Enqueue("data");
@@ -35,6 +35,15 @@ namespace ConsoleGameEngineTest.Domain
             Assert.That(queue.Dequeue(), Is.EqualTo("abs"));
             Assert.That(queue.Dequeue(), Is.EqualTo("isp"));
             Assert.That(queue.Dequeue(), Is.EqualTo("data"));
+        }
+
+        [TestCase]
+        public void DequeueNullTest()
+        {
+            var queue = new ConsoleGameEngine.Domain.Struct.Queue<string>();
+            Assert.IsTrue(queue.Dequeue() is null);
+
+            //TODO Check log
         }
     }
 }
