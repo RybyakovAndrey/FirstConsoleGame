@@ -12,7 +12,6 @@ namespace ConsoleGameEngine.Domain.Component
         void Update(float daltaTime);
 
         void OnEvent(Event e);
-
         void Enable();
         void Disable();
 

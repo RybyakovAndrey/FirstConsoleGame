@@ -24,7 +24,7 @@ namespace ConsoleGameEngine.Core
             Console.WriteLine("Create application engine");
         }
 
-        public void Destroy()
+        public virtual void Destroy()
         {
             m_inputSystem.Destroy();
             Console.WriteLine("Destroy application");
@@ -35,23 +35,32 @@ namespace ConsoleGameEngine.Core
             if (e is KeyPressedEvent keyEvent && keyEvent.GetKeyCode() == KeyCode.Escape)
                 Close();
 
+            foreach (var layer in m_layerStack)
+                layer.OnEvent(e);
+
             Console.WriteLine(e.ToString());
         }
 
         public void PopLayer(ILayer layer)
         {
+            layer.Destroy();
             m_layerStack.Pop(layer);
         }
 
         public void PushLayer(ILayer layer)
         {
             m_layerStack.Push(layer);
+            layer.Start();
         }
 
         public void Run()
         {
             while (m_isRunning)
             {
+
+                foreach (var layer in m_layerStack)
+                    layer.Update(0);
+
                 Console.WriteLine("Update");
                 Thread.Sleep(500);
             }

@@ -9,7 +9,6 @@ namespace ConsoleGameEngine.Domain.GameObject
         void AddComponent();
         void RemoveComponent();
         void Update(float deltaTime);
-
         void OnEvent(Event e);
         void Start();
         void Destroy();

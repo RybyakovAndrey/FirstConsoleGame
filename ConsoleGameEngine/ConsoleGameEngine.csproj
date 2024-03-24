@@ -44,8 +44,11 @@
     <Compile Include="src\Domain\Event\EventType.cs" />
     <Compile Include="src\Domain\GameObject\IGameObject.cs" />
     <Compile Include="src\Domain\ILayer.cs" />
+    <Compile Include="src\Domain\Struct\ILayerStack.cs" />
+    <Compile Include="src\Domain\Struct\LayerStack.cs" />
     <Compile Include="src\Domain\Struct\Queue.cs" />
     <Compile Include="src\Domain\Struct\QueueItem.cs" />
+    <Compile Include="src\Graphics\RenderComponent.cs" />
     <Compile Include="src\Input\Factories\IMapperKeyCode.cs" />
     <Compile Include="src\Input\InputSystem.cs" />
     <Compile Include="src\Input\KeyCode.cs" />

@@ -1,5 +1,4 @@
-﻿
-using ConsoleGameEngine.Domain.Events;
+﻿using ConsoleGameEngine.Domain.Events;
 using ConsoleGameEngine.Domain.GameObject;
 
 namespace ConsoleGameEngine.Domain.Component
@@ -8,7 +7,6 @@ namespace ConsoleGameEngine.Domain.Component
     {
         protected IGameObject gameObject;
         private bool m_activeComponent;
-
         public BaseComponent()
         {
             m_activeComponent = true;
@@ -17,7 +15,7 @@ namespace ConsoleGameEngine.Domain.Component
         public abstract void Destroy();
         public abstract void Start();
         public abstract void Update(float daltaTime);
-
+        public abstract void OnEvent(Event e);
         public virtual void Disable()
         {
             m_activeComponent = false;
@@ -30,9 +28,6 @@ namespace ConsoleGameEngine.Domain.Component
 
         public bool IsActiveComponent() => m_activeComponent;
 
-        public void OnEvent(Event e)
-        {
-            
-        }
+        
     }
 }
