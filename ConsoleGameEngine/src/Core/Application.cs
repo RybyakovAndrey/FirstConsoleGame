@@ -8,6 +8,7 @@ using ConsoleGameEngine.Input;
 
 namespace ConsoleGameEngine.Core
 {
+
     public abstract class Application : IApplication
     {
         protected InputSystem m_inputSystem;
@@ -55,7 +56,7 @@ namespace ConsoleGameEngine.Core
             layer?.Start();
         }
 
-        public void Run()
+        public virtual void Run()
         {
             while (m_isRunning)
             {
@@ -73,4 +74,5 @@ namespace ConsoleGameEngine.Core
             m_isRunning = false;
         }
     }
+
 }

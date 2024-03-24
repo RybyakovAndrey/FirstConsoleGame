@@ -1,5 +1,5 @@
-﻿using ConsoleGameEngine.Core;
-using ConsoleGameEngineTest.Domain;
+﻿using ConsoleGameEngineTest.Domain;
+using ConsoleGameEngineTest.FakeType;
 using NUnit.Framework;
 
 namespace ConsoleGameEngineTest.Core
@@ -55,10 +55,5 @@ namespace ConsoleGameEngineTest.Core
 
     }
 
-    internal class FakeApplication : Application
-    {
-
-
-    }
 
 }

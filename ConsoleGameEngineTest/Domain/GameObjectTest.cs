@@ -1,8 +1,6 @@
-﻿using ConsoleGameEngine.Domain.Component;
-using ConsoleGameEngine.Domain.Events;
-using ConsoleGameEngine.Domain.GameObject;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using ConsoleGameEngine.Graphics;
+using ConsoleGameEngineTest.FakeType;
 
 namespace ConsoleGameEngineTest.Domain
 {
@@ -105,65 +103,5 @@ namespace ConsoleGameEngineTest.Domain
             Assert.IsFalse(actualComponent is RenderComponent);
         }
 
-    }
-
-    internal class FakeGameObject : GameObject
-    {
-        public override void Destroy()
-        {
-            
-        }
-
-        public override void Start()
-        {
-            
-        }
-    }
-
-    internal class FakeComponent : BaseComponent, IFakeComponent
-    {
-        private int m_timesStart;
-        private int m_timesDestroy;
-
-        public FakeComponent()
-        {
-            m_timesStart = 0;
-            m_timesDestroy = 0;
-        }
-        public void CheckCalledDestroyTimes(int times)
-        {
-            Assert.That(m_timesDestroy, Is.EqualTo(times));
-        }
-
-        public void CheckCalledStartTimes(int times)
-        {
-            Assert.That(m_timesStart, Is.EqualTo(times));  
-        }
-
-        public override void Destroy()
-        {
-            m_timesDestroy++;
-        }
-
-        public override void OnEvent(Event e)
-        {
-            
-        }
-
-        public override void Start()
-        {
-            m_timesStart++;
-        }
-
-        public override void Update(float daltaTime)
-        {
-            
-        }
-    }
-
-    internal interface IFakeComponent
-    {
-        void CheckCalledStartTimes(int times);
-        void CheckCalledDestroyTimes(int times);
     }
 }

@@ -19,14 +19,21 @@ namespace ConsoleGameEngine.Input
 
             ThreadStart threadStart = new ThreadStart(UpdateInputSystem);
             m_thread = new Thread(threadStart);
+
+#if DEBUG
             m_thread.Start();
+#endif
 
             Console.WriteLine("Init InputSystem");
         }
 
         public void Destroy()
         {
-            m_thread.Abort();
+
+#if DEBUG 
+            if (m_thread.IsAlive)
+                m_thread.Abort();
+#endif
             Console.WriteLine("Distroy InputSystem");
         }
 
