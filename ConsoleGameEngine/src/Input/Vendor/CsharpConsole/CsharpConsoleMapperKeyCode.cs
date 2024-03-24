@@ -36,6 +36,46 @@ namespace ConsoleGameEngine.Input.Vendor.CsharpConsole
                     return KeyCode.Q;
                 case ConsoleKey.Escape:
                     return KeyCode.Escape;
+                case ConsoleKey.Z:
+                    return KeyCode.Z;
+                case ConsoleKey.X:
+                    return KeyCode.X;
+                case ConsoleKey.C:
+                    return KeyCode.C;
+                case ConsoleKey.V:
+                    return KeyCode.V;
+                case ConsoleKey.R:
+                    return KeyCode.R;
+                case ConsoleKey.F:
+                    return KeyCode.F;
+                case ConsoleKey.T:
+                    return KeyCode.T;
+                case ConsoleKey.G:
+                    return KeyCode.G;
+                case ConsoleKey.Y:
+                    return KeyCode.Y;
+                case ConsoleKey.H:
+                    return KeyCode.H;
+                case ConsoleKey.U:
+                    return KeyCode.U;
+                case ConsoleKey.J:
+                    return KeyCode.J;
+                case ConsoleKey.I:
+                    return KeyCode.I;
+                case ConsoleKey.K:
+                    return KeyCode.K;
+                case ConsoleKey.O:
+                    return KeyCode.O;
+                case ConsoleKey.L:
+                    return KeyCode.L;
+                case ConsoleKey.P:
+                    return KeyCode.P;
+                case ConsoleKey.N:
+                    return KeyCode.N;
+                case ConsoleKey.M:
+                    return KeyCode.M;
+                case ConsoleKey.Spacebar:
+                    return KeyCode.SPACE;
                 default:
                     return KeyCode.None;
             }

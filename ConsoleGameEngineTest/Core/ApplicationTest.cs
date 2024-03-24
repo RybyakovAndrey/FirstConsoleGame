@@ -1,5 +1,4 @@
-﻿using ConsoleGameEngineTest.Domain;
-using ConsoleGameEngineTest.FakeType;
+﻿using ConsoleGameEngineTest.FakeType;
 using NUnit.Framework;
 
 namespace ConsoleGameEngineTest.Core

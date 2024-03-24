@@ -1,6 +1,4 @@
-﻿#define UNIT_TEST
-
-using System;
+﻿using System;
 
 namespace ConsoleGameEngine.Core
 {

@@ -48,6 +48,7 @@
     <Compile Include="src\Domain\Event\Event.cs" />
     <Compile Include="src\Domain\Event\EventCategory.cs" />
     <Compile Include="src\Domain\Event\EventType.cs" />
+    <Compile Include="src\Domain\GameObject\BaseGameObject.cs" />
     <Compile Include="src\Domain\GameObject\GameObject.cs" />
     <Compile Include="src\Domain\GameObject\IGameObject.cs" />
     <Compile Include="src\Domain\ILayer.cs" />

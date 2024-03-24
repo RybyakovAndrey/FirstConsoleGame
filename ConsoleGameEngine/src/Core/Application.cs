@@ -5,13 +5,11 @@ using ConsoleGameEngine.Domain.Events;
 using ConsoleGameEngine.Domain.Struct;
 using ConsoleGameEngine.Input;
 
-
 namespace ConsoleGameEngine.Core
 {
-
     public abstract class Application : IApplication
     {
-        protected InputSystem m_inputSystem;
+        private InputSystem m_inputSystem;
         private bool m_isRunning;
         private LayerStack m_layerStack;
         public Application()
@@ -20,7 +18,7 @@ namespace ConsoleGameEngine.Core
             m_layerStack = new LayerStack();
 
             // ----- Init System --------
-            m_inputSystem = new InputSystem(OnEvent);
+            m_inputSystem = InputSystem.GetInputSystem(OnEvent);
 
             Console.WriteLine("Create application engine");
         }

@@ -11,6 +11,26 @@ namespace ConsoleGameEngine.Input
         W,
         Q,
         B,
-        Escape
+        Escape,
+        Z,
+        X,
+        C,
+        V,
+        R,
+        F,
+        T,
+        G,
+        Y,
+        H,
+        U,
+        J,
+        I,
+        K,
+        O,
+        L,
+        P,
+        N,
+        M,
+        SPACE
     }
 }

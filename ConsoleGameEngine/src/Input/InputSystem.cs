@@ -9,10 +9,12 @@ namespace ConsoleGameEngine.Input
     public delegate void OnPressedEvent(Event e);
     public sealed class InputSystem
     {
+        private static InputSystem m_instance;
+
         private OnPressedEvent m_onPressedKey;
         private ConsoleKey m_currentKey;
         private Thread m_thread;
-        public InputSystem(OnPressedEvent callback)
+        private InputSystem(OnPressedEvent callback)
         {
             m_onPressedKey = callback;
             m_currentKey = ConsoleKey.NoName;
@@ -27,12 +29,19 @@ namespace ConsoleGameEngine.Input
             Console.WriteLine("Init InputSystem");
         }
 
+        public static InputSystem GetInputSystem(OnPressedEvent callback)
+        {
+            if(m_instance is null)
+                m_instance = new InputSystem(callback);
+
+            return m_instance;
+        }
+
         public void Destroy()
         {
 
 #if DEBUG 
-            if (m_thread.IsAlive)
-                m_thread.Abort();
+            m_thread.Abort();
 #endif
             Console.WriteLine("Distroy InputSystem");
         }
@@ -55,6 +64,8 @@ namespace ConsoleGameEngine.Input
         {
             return new CsharpConsoleMapperKeyCodeFactory(m_currentKey);
         }
+
+
 
 
     }
