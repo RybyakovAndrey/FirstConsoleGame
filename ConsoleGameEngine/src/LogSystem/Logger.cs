@@ -22,6 +22,7 @@ namespace ConsoleGameEngine.LogSystem
 
         public void Logging(string massage, LogLevel logLevel)
         {
+
             LoggerImpl.Write($" {m_name}: {massage}", logLevel);
         }
     }

@@ -1,4 +1,5 @@
-﻿using ConsoleGameEngineTest.FakeType;
+﻿using ConsoleGameEngine.Core;
+using ConsoleGameEngineTest.FakeType;
 using NUnit.Framework;
 
 namespace ConsoleGameEngineTest.Core
@@ -9,6 +10,7 @@ namespace ConsoleGameEngineTest.Core
         [TestCase]
         public void CheckCalledPushLayerWhenNull()
         {
+            EntryPoint.Initialization();
             var app = new FakeApplication();
             app.PushLayer(null);
             Assert.Pass();
@@ -17,6 +19,7 @@ namespace ConsoleGameEngineTest.Core
         [TestCase]
         public void CheckCalledPopLayerWhenNull()
         {
+            EntryPoint.Initialization();
             var app = new FakeApplication();
             app.PopLayer(null);
             Assert.Pass();
@@ -25,6 +28,7 @@ namespace ConsoleGameEngineTest.Core
         [TestCase]
         public void CheckCalledPopLayerWhenDontHaveLayerInStack()
         {
+            EntryPoint.Initialization();
             var app = new FakeApplication();
             var fakeLayer = new IFakeLayer.Base();
             app.PopLayer(fakeLayer);
@@ -34,6 +38,7 @@ namespace ConsoleGameEngineTest.Core
         [TestCase]
         public void CheckCalledLayerStartWhenAddLayer()
         {
+            EntryPoint.Initialization();
             var app = new FakeApplication();
             var fakeLayer = new IFakeLayer.Base();
             fakeLayer.CheckCalledStart(0);
@@ -44,6 +49,7 @@ namespace ConsoleGameEngineTest.Core
         [TestCase]
         public void CheckCalledLayerDestroyWhenPopLayer()
         {
+            EntryPoint.Initialization();
             var app = new FakeApplication();
             var fakeLayer = new IFakeLayer.Base();
             app.PushLayer(fakeLayer);

@@ -11,6 +11,7 @@ namespace ConsoleGameEngineTest.Core
         [TestCase]
         public void CheckCalledInitTimesTest()
         {
+            EntryPoint.Initialization();
             var app = new FakeApplication();
             EntryPoint.application = app;
             app.OnEvent(new KeyPressedEvent(KeyCode.Escape));
@@ -21,6 +22,7 @@ namespace ConsoleGameEngineTest.Core
         [TestCase]
         public void CheckCalledRunTimesTest()
         {
+            EntryPoint.Initialization();
             var app = new FakeApplication();
             EntryPoint.application = app;
             app.CheckCalledTimesRun(0);
@@ -33,6 +35,7 @@ namespace ConsoleGameEngineTest.Core
         [TestCase]
         public void CheckCalledDestroyTimesTest()
         {
+            EntryPoint.Initialization();
             var app = new FakeApplication();
             EntryPoint.application = app;
             app.CheckCalledTimesDestroy(0);
@@ -44,6 +47,7 @@ namespace ConsoleGameEngineTest.Core
         [TestCase]
         public void CheckSequenceCalledTest()
         {
+            EntryPoint.Initialization();
             var app = new FakeApplication();
             EntryPoint.application = app;
             app.OnEvent(new KeyPressedEvent(KeyCode.Escape));
