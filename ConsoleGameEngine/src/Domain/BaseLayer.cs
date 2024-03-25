@@ -1,6 +1,7 @@
 ﻿using ConsoleGameEngine.Domain.Events;
 using ConsoleGameEngine.Domain.GameObject;
 using ConsoleGameEngine.Graphics;
+using ConsoleGameEngine.LogSystem;
 using System.Collections.Generic;
 
 namespace ConsoleGameEngine.Domain
@@ -28,6 +29,8 @@ namespace ConsoleGameEngine.Domain
             foreach(var gameObject in m_dynamicGameObjects)
                 gameObject.Destroy();
             m_dynamicGameObjects.Clear();
+
+            Log.CoreLogger.Logging("DestroyLayer", LogLevel.Info);
         }
 
         public virtual void Update(float deltaTime)

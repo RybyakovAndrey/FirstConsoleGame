@@ -1,4 +1,4 @@
-﻿using System;
+﻿using ConsoleGameEngine.LogSystem;
 
 namespace ConsoleGameEngine.Core
 {
@@ -7,7 +7,8 @@ namespace ConsoleGameEngine.Core
         public static Application application { get; set; }
         public static void Initialization()
         {
-            Console.WriteLine("Init Engine");
+            Log.Init();
+            Log.CoreLogger.Logging("Init Engine", LogLevel.Info);
         }
 
         public static void Destroy()

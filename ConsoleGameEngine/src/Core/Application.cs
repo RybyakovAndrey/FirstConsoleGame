@@ -4,6 +4,7 @@ using ConsoleGameEngine.Domain;
 using ConsoleGameEngine.Domain.Events;
 using ConsoleGameEngine.Domain.Struct;
 using ConsoleGameEngine.Input;
+using ConsoleGameEngine.LogSystem;
 
 namespace ConsoleGameEngine.Core
 {
@@ -20,7 +21,7 @@ namespace ConsoleGameEngine.Core
             // ----- Init System --------
             m_inputSystem = InputSystem.GetInputSystem(OnEvent);
 
-            Console.WriteLine("Create application engine");
+            Log.CoreLogger.Logging("Create application engine", LogLevel.Info);
         }
 
         public virtual void Destroy()
@@ -31,7 +32,7 @@ namespace ConsoleGameEngine.Core
                 layer.Destroy();
             m_layerStack.Clear();
 
-            Console.WriteLine("Destroy application");
+            Log.CoreLogger.Logging("Destroy application", LogLevel.Info);
         }
 
         public void OnEvent(Event e)

@@ -1,6 +1,7 @@
 ﻿using ConsoleGameEngine.Domain.Component;
 using ConsoleGameEngine.Domain.Events;
 using ConsoleGameEngine.Input;
+using ConsoleGameEngine.LogSystem;
 using System;
 
 namespace FirstConsoleGame
@@ -14,7 +15,7 @@ namespace FirstConsoleGame
         }
         public override void Destroy()
         {
-            Console.WriteLine("Destroy Player");
+            Log.ClientLogger.Logging("Destroy Player", LogLevel.Info);
         }
 
         public override void OnEvent(Event e)

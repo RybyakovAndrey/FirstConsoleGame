@@ -1,5 +1,5 @@
 ﻿using ConsoleGameEngine.Core;
-using System;
+using ConsoleGameEngine.LogSystem;
 
 namespace FirstConsoleGame
 {
@@ -7,20 +7,23 @@ namespace FirstConsoleGame
     {
         public Game()
         {
+            Log.ClientLogger.Logging("Create Game", LogLevel.Info);
             Initialization();
-            Console.WriteLine("Create Game");
+
         }
 
         public override void Destroy()
         {
-            Console.WriteLine("Destroy Game");
+
+            Log.ClientLogger.Logging("Destroy Game", LogLevel.Info);
             base.Destroy();
         }
 
         private void Initialization()
         {
             PushLayer(new ExampleLayer());
-            Console.WriteLine("Init Game");
+
+            Log.ClientLogger.Logging("Init Game", LogLevel.Info);
         }
 
     }

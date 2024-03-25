@@ -5,7 +5,8 @@ namespace ConsoleGameEngine.Domain.GameObject
     {
         public override void Destroy()
         {
-            
+
+            base.Destroy();
         }
 
         public override void Start()

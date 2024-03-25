@@ -1,6 +1,7 @@
 ﻿using ConsoleGameEngine.Domain.Events;
 using ConsoleGameEngine.Input.Factories;
 using ConsoleGameEngine.Input.Vendor.CsharpConsole;
+using ConsoleGameEngine.LogSystem;
 using System;
 using System.Threading;
 
@@ -22,11 +23,10 @@ namespace ConsoleGameEngine.Input
             ThreadStart threadStart = new ThreadStart(UpdateInputSystem);
             m_thread = new Thread(threadStart);
 
-#if DEBUG
+#if (DEBUG || RELEASE)
             m_thread.Start();
 #endif
-
-            Console.WriteLine("Init InputSystem");
+            Log.CoreLogger.Logging("Init InputSystem", LogLevel.Info);
         }
 
         public static InputSystem GetInputSystem(OnPressedEvent callback)
@@ -40,10 +40,10 @@ namespace ConsoleGameEngine.Input
         public void Destroy()
         {
 
-#if DEBUG 
+#if (DEBUG || RELEASE) 
             m_thread.Abort();
 #endif
-            Console.WriteLine("Distroy InputSystem");
+            Log.CoreLogger.Logging("Distroy InputSystem", LogLevel.Info);
         }
 
         private void UpdateInputSystem()

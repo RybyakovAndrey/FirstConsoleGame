@@ -1,5 +1,6 @@
 ﻿using ConsoleGameEngine.Domain;
 using ConsoleGameEngine.Domain.GameObject;
+using ConsoleGameEngine.LogSystem;
 using System;
 
 namespace FirstConsoleGame
@@ -8,7 +9,7 @@ namespace FirstConsoleGame
     {
         public ExampleLayer() : base("Example Layer")
         {
-            Console.WriteLine("Create Example Layer");
+            Log.ClientLogger.Logging("Create Example Layer", LogLevel.Info);
         }
 
         public override void Start()
@@ -20,7 +21,8 @@ namespace FirstConsoleGame
         }
         public override void Destroy()
         {
-            
+
+            base.Destroy();
         }
     }
 }
