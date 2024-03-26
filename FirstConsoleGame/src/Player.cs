@@ -1,5 +1,6 @@
 ﻿using ConsoleGameEngine.Domain.Component;
 using ConsoleGameEngine.Domain.Events;
+using ConsoleGameEngine.Graphics;
 using ConsoleGameEngine.Input;
 using ConsoleGameEngine.LogSystem;
 using System;
@@ -9,6 +10,7 @@ namespace FirstConsoleGame
     internal class Player : BaseComponent
     {
         private int m_direction;
+
         public override void Start()
         {
             m_direction = 0;

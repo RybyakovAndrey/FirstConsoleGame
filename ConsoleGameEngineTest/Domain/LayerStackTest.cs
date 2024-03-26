@@ -1,5 +1,7 @@
-﻿using ConsoleGameEngine.Domain;
+﻿using ConsoleGameEngine.Core;
+using ConsoleGameEngine.Domain;
 using ConsoleGameEngine.Domain.Struct;
+using ConsoleGameEngine.FileSystems;
 using ConsoleGameEngineTest.FakeType;
 using NUnit.Framework;
 
@@ -10,21 +12,33 @@ namespace ConsoleGameEngineTest.Domain
         [TestCase]
         public void CheckCalledPushWhenNull()
         {
+            EntryPoint.Initialization();
+
             var layerStack = new LayerStack();
             layerStack.Push(null);
-            Assert.Pass();
-
-            //TODO Check Log
+            
+            var time = DateTime.Now;
+            var countTime = (time.Hour / 10 > 0 ? 1 : 0) + (time.Minute / 10 > 0 ? 1 : 0) + (time.Second / 10 > 0 ? 1 : 0) + 3;
+            var textLog = FileSystem.ReadFromFile(@$".\Log\log-date({time.Day}_{time.Month}_{time.Year}).txt", 0, 8 + countTime);
+            Assert.IsFalse(textLog is null);
+            Assert.IsTrue(textLog.Contains("(Warn)  ConsoleEngine: Error can't push layer in LayerStack: null"));
+            
         }
 
         [TestCase]
         public void CheckCalledPopWhenNull()
         {
-            var layerStack = new LayerStack();
-            layerStack.Push(null);
-            Assert.Pass();
+            EntryPoint.Initialization();
 
-            //TODO Check Log
+            var layerStack = new LayerStack();
+            layerStack.Pop(null);
+
+            var time = DateTime.Now;
+            var countTime = (time.Hour / 10 > 0 ? 1 : 0) + (time.Minute / 10 > 0 ? 1 : 0) + (time.Second / 10 > 0 ? 1 : 0) + 3;
+            var textLog = FileSystem.ReadFromFile(@$".\Log\log-date({time.Day}_{time.Month}_{time.Year}).txt", 0, 8 + countTime);
+            Assert.IsFalse(textLog is null);
+            Assert.IsTrue(textLog.Contains("(Warn)  ConsoleEngine: Error can't pop layer in LayerStack: null"));
+
         }
 
         [TestCase]

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleGameEngine.LogSystem;
+using System.Data.SqlTypes;
 
 namespace ConsoleGameEngine.Domain.Struct
 {
@@ -13,6 +14,13 @@ namespace ConsoleGameEngine.Domain.Struct
 
         public void Enqueue(T value)
         {
+
+            if (value as object is null)
+            {
+                Log.CoreLogger.Logging("Error can't push item in Queue: null", LogLevel.Warn);
+                return;
+            }
+
             if (m_head == null)
             {
                 m_head = new QueueItem<T>(value, null);
@@ -29,8 +37,10 @@ namespace ConsoleGameEngine.Domain.Struct
         public T Dequeue()
         {
             if (m_head == null)
+            {
+                Log.CoreLogger.Logging("Error can't dequeue item in Queue: null, don't have element", LogLevel.Warn);
                 return default(T);
-
+            }
             var value = m_head.Value;
             m_head = m_head.Next;
             return value;

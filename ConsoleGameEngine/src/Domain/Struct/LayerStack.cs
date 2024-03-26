@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using ConsoleGameEngine.LogSystem;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace ConsoleGameEngine.Domain.Struct
@@ -14,16 +15,20 @@ namespace ConsoleGameEngine.Domain.Struct
         public void Pop(ILayer layer)
         {
             if (layer is null)
+            {
+                Log.CoreLogger.Logging("Error can't pop layer in LayerStack: null", LogLevel.Warn);
                 return;
-
+            }
             m_stack.Remove(layer);     
         }
 
         public void Push(ILayer layer)
         {
             if (layer is null)
+            {
+                Log.CoreLogger.Logging("Error can't push layer in LayerStack: null", LogLevel.Warn);
                 return;
-
+            }
             m_stack.Add(layer);
         }
 

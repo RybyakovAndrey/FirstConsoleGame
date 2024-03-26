@@ -1,5 +1,5 @@
-﻿using System;
-using System.IO;
+﻿using ConsoleGameEngine.FileSystems;
+using System;
 
 namespace ConsoleGameEngine.LogSystem.Core
 {
@@ -40,8 +40,8 @@ namespace ConsoleGameEngine.LogSystem.Core
             if (string.IsNullOrEmpty(m_filePathLog))
                 m_filePathLog = BASIC_PATH;
 
-            if (!Directory.Exists(m_filePathLog))
-                Directory.CreateDirectory(m_filePathLog);
+            if (!FileSystem.IsHaveDirectory(m_filePathLog))
+                FileSystem.CreateDirectory(m_filePathLog);
 
             var time = DateTime.Now;
             var path = $@"log-date({time.Day}_{time.Month}_{time.Year}).txt";
@@ -50,18 +50,12 @@ namespace ConsoleGameEngine.LogSystem.Core
 
             if (logLevel >= LogLevel.MinLevel)
             {
-                using (var textWriter = File.AppendText(m_filePathLog + path))
-                {
-                    textWriter.WriteLine(Patern(massage, logLevel));
-                }
+                FileSystem.WriteToFile(Patern(massage, logLevel), m_filePathLog + path);
             }
 #else
             if (logLevel >= LogLevel.Warn)
             {
-                using (var textWriter = File.AppendText(m_filePathLog + path))
-                {
-                    textWriter.WriteLine(Patern(massage, logLevel));
-                }
+                FileSystem.WriteToFile(Patern(massage, logLevel), m_filePathLog + path);
             }
 #endif
         }

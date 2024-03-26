@@ -1,4 +1,6 @@
-﻿using ConsoleGameEngine.LogSystem;
+﻿using ConsoleGameEngine.FileSystems;
+using ConsoleGameEngine.LogSystem;
+using System;
 
 namespace ConsoleGameEngine.Core
 {
@@ -8,7 +10,9 @@ namespace ConsoleGameEngine.Core
         public static void Initialization()
         {
             Log.Init();
-            Log.CoreLogger.Logging("Init Engine", LogLevel.Info);
+            InitFileSystem();
+            
+            Log.CoreLogger.Logging("Init ConsoleGameEngine", LogLevel.Info);
         }
 
         public static void Destroy()
@@ -20,6 +24,17 @@ namespace ConsoleGameEngine.Core
         {
             application.Run();
             Destroy();
+        }
+
+        private static void InitFileSystem()
+        {
+            if (FileSystem.Init())
+                Log.CoreLogger.Logging("Init FileSystem", LogLevel.Info);
+            else
+            {
+                Log.CoreLogger.Logging("Error initializaition FileSystem", LogLevel.Error);
+                throw new MethodAccessException("didn't work out initialization FileSystem");
+            }
         }
 
     }

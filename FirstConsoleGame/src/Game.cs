@@ -14,9 +14,11 @@ namespace FirstConsoleGame
 
         public override void Destroy()
         {
+            //First Destroy base App
+            base.Destroy();
 
             Log.ClientLogger.Logging("Destroy Game", LogLevel.Info);
-            base.Destroy();
+            
         }
 
         private void Initialization()
