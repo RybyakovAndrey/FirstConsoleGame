@@ -1,5 +1,4 @@
 ﻿using ConsoleGameEngine.LogSystem;
-using System.Data.SqlTypes;
 
 namespace ConsoleGameEngine.Domain.Struct
 {

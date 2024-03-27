@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
 using ConsoleGameEngine.Graphics;
 using ConsoleGameEngineTest.FakeType;
+using ConsoleGameEngine.FileSystems;
+using ConsoleGameEngine.Core;
 
 namespace ConsoleGameEngineTest.Domain
 {
@@ -33,31 +35,44 @@ namespace ConsoleGameEngineTest.Domain
         [TestCase]
         public void CheckCalledAddComponentWhenNull()
         {
+            EntryPoint.Initialization();
+
             var gameObject = new FakeGameObject();
             gameObject.AddComponent(null);
-            Assert.Pass();
-
-            //TODO Check Log
+            
+            var time = DateTime.Now;
+            var countTime = (time.Hour / 10 > 0 ? 1 : 0) + (time.Minute / 10 > 0 ? 1 : 0) + (time.Second / 10 > 0 ? 1 : 0) + 3;
+            var textLog = FileSystem.ReadFromFile(@$".\Log\log-date({time.Day}_{time.Month}_{time.Year}).txt", 0, 8 + countTime);
+            Assert.IsFalse(textLog is null);
+            Assert.IsTrue(textLog.Contains("(Warn)  ConsoleEngine: Error can't add a component in gameObject of the type: null"));
         }
 
         [TestCase]
         public void CheckCalledRemoveComponentWhenNull()
         {
+            EntryPoint.Initialization();
             var gameObject = new FakeGameObject();
             gameObject.RemoveComponent(null);
-            Assert.Pass();
-
-            //TODO Check Log
+                   
+            var time = DateTime.Now;
+            var countTime = (time.Hour / 10 > 0 ? 1 : 0) + (time.Minute / 10 > 0 ? 1 : 0) + (time.Second / 10 > 0 ? 1 : 0) + 3;
+            var textLog = FileSystem.ReadFromFile(@$".\Log\log-date({time.Day}_{time.Month}_{time.Year}).txt", 0, 8 + countTime);
+            Assert.IsFalse(textLog is null);
+            Assert.IsTrue(textLog.Contains("(Warn)  ConsoleEngine: Error can't delete the component in gameObject of the type: null"));
         }
 
         [TestCase]
         public void CheckCalledGetComponentWhenDontHaveComponentInGameObject()
         {
+            EntryPoint.Initialization();
             var gameObject = new FakeGameObject();
             gameObject.GetComponent<FakeComponent>();
-            Assert.Pass();
-
-            // TODO Check Log
+            
+            var time = DateTime.Now;
+            var countTime = (time.Hour / 10 > 0 ? 1 : 0) + (time.Minute / 10 > 0 ? 1 : 0) + (time.Second / 10 > 0 ? 1 : 0) + 3;
+            var textLog = FileSystem.ReadFromFile(@$".\Log\log-date({time.Day}_{time.Month}_{time.Year}).txt", 0, 8 + countTime);
+            Assert.IsFalse(textLog is null);
+            Assert.IsTrue(textLog.Contains("(Warn)  ConsoleEngine: Error don't have component in gameObject of the type: FakeComponent"));
         }
 
         [TestCase]

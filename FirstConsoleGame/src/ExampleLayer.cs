@@ -1,7 +1,6 @@
 ﻿using ConsoleGameEngine.Domain;
 using ConsoleGameEngine.Domain.GameObject;
 using ConsoleGameEngine.LogSystem;
-using System;
 
 namespace FirstConsoleGame
 {
@@ -14,7 +13,7 @@ namespace FirstConsoleGame
 
         public override void Start()
         {
-            var player = new BaseGameObject();
+            var player = new BaseGameObject("Player");
             var playerComponent = new Player();
             player.AddComponent(playerComponent);
             AddGameObject(player, false);
