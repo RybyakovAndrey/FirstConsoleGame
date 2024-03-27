@@ -26,16 +26,16 @@ namespace ConsoleGameEngineTest.Domain
         public void TestCheckCompareVector()
         {
             var vector = new Vector2(1, 3);
-            var vector2 = new Vector2(3, 1);
-            Assert.IsTrue(vector >= vector2);
+            var vector2 = new Vector2(3, 3);
+            Assert.IsFalse(vector >= vector2);
             Assert.IsTrue(vector <= vector2);
         }
 
         [TestCase]
         public void TestCheckCompareVector2()
         {
-            var vector = new Vector2(1, 3);
-            var vector2 = new Vector2(2, 1);
+            var vector = new Vector2(2, 3);
+            var vector2 = new Vector2(1, 2);
             Assert.IsTrue(vector > vector2);
             Assert.IsFalse(vector < vector2);
         }

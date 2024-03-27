@@ -69,6 +69,11 @@ namespace ConsoleGameEngineTest.FakeType
             {
 
             }
+
+            public IEnumerable<IGameObject> GetObjects()
+            {
+                return null;
+            }
         }
     }
 }
