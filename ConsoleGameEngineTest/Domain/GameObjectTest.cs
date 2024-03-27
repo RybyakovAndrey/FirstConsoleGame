@@ -109,8 +109,8 @@ namespace ConsoleGameEngineTest.Domain
             var fakeComponent2 = new FakeComponent();
             gameObject.AddComponent(fakeComponent);
             gameObject.AddComponent(fakeComponent2);
-            var actualComponent = gameObject.GetComponent<RenderComponent>();
-            Assert.IsFalse(actualComponent is RenderComponent);
+            var actualComponent = gameObject.GetComponent<MeshComponent>();
+            Assert.IsFalse(actualComponent is MeshComponent);
 
         }
 
@@ -119,18 +119,18 @@ namespace ConsoleGameEngineTest.Domain
         {
             var gameObject = new FakeGameObject();
             var fakeComponent = new FakeComponent();
-            var fakeComponent2 = new RenderComponent();
+            var fakeComponent2 = new MeshComponent();
             gameObject.AddComponent(fakeComponent);
             gameObject.AddComponent(fakeComponent2);
-            var actualComponent = gameObject.GetComponent<RenderComponent>();
-            Assert.IsTrue(actualComponent is RenderComponent);
+            var actualComponent = gameObject.GetComponent<MeshComponent>();
+            Assert.IsTrue(actualComponent is MeshComponent);
             gameObject.RemoveComponent(fakeComponent);
-            actualComponent = gameObject.GetComponent<RenderComponent>();
-            Assert.IsTrue(actualComponent is RenderComponent);
+            actualComponent = gameObject.GetComponent<MeshComponent>();
+            Assert.IsTrue(actualComponent is MeshComponent);
             gameObject.RemoveComponent(fakeComponent2);
             gameObject.AddComponent(fakeComponent);
-            actualComponent = gameObject.GetComponent<RenderComponent>();
-            Assert.IsFalse(actualComponent is RenderComponent);
+            actualComponent = gameObject.GetComponent<MeshComponent>();
+            Assert.IsFalse(actualComponent is MeshComponent);
         }
 
     }

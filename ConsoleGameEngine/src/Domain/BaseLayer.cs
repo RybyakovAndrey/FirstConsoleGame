@@ -1,8 +1,8 @@
 ﻿using ConsoleGameEngine.Domain.Events;
 using ConsoleGameEngine.Domain.GameObject;
-using ConsoleGameEngine.Graphics;
 using ConsoleGameEngine.LogSystem;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ConsoleGameEngine.Domain
 {
@@ -38,13 +38,8 @@ namespace ConsoleGameEngine.Domain
             foreach (var gameObject in m_dynamicGameObjects)
             {
                 gameObject.Update(deltaTime);
-                RenderGameObject(gameObject);
             }
 
-            foreach (var gameObject in m_staticGameObjects)
-            {
-                RenderGameObject(gameObject);
-            }
         }
 
         public virtual void OnEvent(Event e)
@@ -83,11 +78,9 @@ namespace ConsoleGameEngine.Domain
             return m_nameLayer;
         }
 
-        private void RenderGameObject(IGameObject gameObject)
+        public IEnumerable<IGameObject> GetObjects()
         {
-            if (gameObject.GetComponent<RenderComponent>() is RenderComponent render)
-                render.DrawGameObject();
+            return m_dynamicGameObjects.Union(m_staticGameObjects); 
         }
-
     }
 }

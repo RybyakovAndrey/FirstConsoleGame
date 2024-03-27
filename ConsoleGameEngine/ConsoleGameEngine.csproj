@@ -48,6 +48,7 @@
     <Compile Include="src\Domain\BaseLayer.cs" />
     <Compile Include="src\Domain\Component\BaseComponent.cs" />
     <Compile Include="src\Domain\Component\IComponent.cs" />
+    <Compile Include="src\Domain\Component\Transform.cs" />
     <Compile Include="src\Domain\Event\Event.cs" />
     <Compile Include="src\Domain\Event\EventCategory.cs" />
     <Compile Include="src\Domain\Event\EventType.cs" />
@@ -62,7 +63,14 @@
     <Compile Include="src\Domain\Struct\Texture.cs" />
     <Compile Include="src\Domain\Struct\Vector2.cs" />
     <Compile Include="src\FileSystem\FileSystem.cs" />
-    <Compile Include="src\Graphics\RenderComponent.cs" />
+    <Compile Include="src\Graphics\Camera2D.cs" />
+    <Compile Include="src\Graphics\Factories\GraphicsContextFactory.cs" />
+    <Compile Include="src\Graphics\Factories\IGraphicsContext.cs" />
+    <Compile Include="src\Graphics\GraphicsSystem.cs" />
+    <Compile Include="src\Graphics\GraphicsType.cs" />
+    <Compile Include="src\Graphics\MeshComponent.cs" />
+    <Compile Include="src\Graphics\Vendor\CsharpConsole\CsharpConsoleGraphicsContext.cs" />
+    <Compile Include="src\Graphics\Vendor\CsharpConsole\CsharpConsoleGraphicsContextFactory.cs" />
     <Compile Include="src\Input\Factories\IMapperKeyCode.cs" />
     <Compile Include="src\Input\InputSystem.cs" />
     <Compile Include="src\Input\KeyCode.cs" />

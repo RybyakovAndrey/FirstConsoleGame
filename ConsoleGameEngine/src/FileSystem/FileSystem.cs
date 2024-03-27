@@ -35,11 +35,10 @@ namespace ConsoleGameEngine.FileSystems
             }
             catch (Exception ex)
             {
-                Log.CoreLogger.Logging($"Error can't write to file: {filePath}. Exception {ex}", LogLevel.Warn);
+                Log.CoreLogger.Logging($"Error can't write to file: {filePath}. Exception {ex}", LogLevel.Error);
             }
         }
-
-
+        
         public static List<string> ReadFromFile(string filePath)
         {
             return ReadFromFile(filePath, 0, 0);
@@ -50,7 +49,7 @@ namespace ConsoleGameEngine.FileSystems
 
             if (!File.Exists(filePath))
             {
-                Log.CoreLogger.Logging($"Error can't read file: {filePath}. ", LogLevel.Warn);
+                Log.CoreLogger.Logging($"Error can't read file: {filePath}. ", LogLevel.Error);
                 return null;
             }
 

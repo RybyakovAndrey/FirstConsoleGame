@@ -1,14 +1,20 @@
 ﻿using ConsoleGameEngine.Domain.Component;
 using ConsoleGameEngine.Domain.Events;
+using ConsoleGameEngine.Domain.Struct;
 
 namespace ConsoleGameEngine.Graphics
 {
-    public class RenderComponent : BaseComponent
+    public class MeshComponent : BaseComponent
     {
-        
+        public Texture texture { get; set; }
+
+        public MeshComponent()
+        {
+            texture = new Texture();
+        }
         public override void Start()
         {
-
+            
         }
         public override void Destroy()
         {
@@ -24,11 +30,6 @@ namespace ConsoleGameEngine.Graphics
         {
            
         }
-
-        public void DrawGameObject()
-        {
-
-        }
-
+        
     }
 }

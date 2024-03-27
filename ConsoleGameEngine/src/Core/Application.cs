@@ -1,8 +1,8 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using ConsoleGameEngine.Domain;
 using ConsoleGameEngine.Domain.Events;
 using ConsoleGameEngine.Domain.Struct;
+using ConsoleGameEngine.Graphics;
 using ConsoleGameEngine.Input;
 using ConsoleGameEngine.LogSystem;
 
@@ -13,6 +13,7 @@ namespace ConsoleGameEngine.Core
         private InputSystem m_inputSystem;
         private bool m_isRunning;
         private LayerStack m_layerStack;
+        private Camera2D m_camera2D;
         public Application()
         {
             m_isRunning = true;
@@ -20,6 +21,7 @@ namespace ConsoleGameEngine.Core
 
             // ----- Init System --------
             m_inputSystem = InputSystem.GetInputSystem(OnEvent);
+            m_camera2D = new Camera2D(new Vector2(150, 40), new Vector2(10, 10));
 
             Log.CoreLogger.Logging("Create application engine", LogLevel.Info);
         }
@@ -27,6 +29,7 @@ namespace ConsoleGameEngine.Core
         public virtual void Destroy()
         {
             m_inputSystem.Destroy();
+            m_camera2D.Destroy();
 
             foreach (var layer in m_layerStack)
                 layer.Destroy();
@@ -43,7 +46,6 @@ namespace ConsoleGameEngine.Core
             foreach (var layer in m_layerStack)
                 layer.OnEvent(e);
 
-            Console.WriteLine(e.ToString());
         }
 
         public void PopLayer(ILayer layer)
@@ -68,7 +70,11 @@ namespace ConsoleGameEngine.Core
                 foreach (var layer in m_layerStack)
                     layer.Update(0);
 
-                Console.WriteLine("Update");
+                m_camera2D.StartRender();
+                foreach (var layer in m_layerStack)
+                    m_camera2D.RenderLayer(layer);
+                m_camera2D.Render();
+
                 Thread.Sleep(10);
             }
         }

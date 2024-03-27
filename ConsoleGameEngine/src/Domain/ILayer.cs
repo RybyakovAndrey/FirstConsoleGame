@@ -1,5 +1,6 @@
 ﻿using ConsoleGameEngine.Domain.Events;
 using ConsoleGameEngine.Domain.GameObject;
+using System.Collections.Generic;
 
 namespace ConsoleGameEngine.Domain
 {
@@ -11,5 +12,6 @@ namespace ConsoleGameEngine.Domain
         void RemoveGameObject(IGameObject gameObject, bool isStatic);
         void Update(float deltaTime);
         void OnEvent(Event e);
+        IEnumerable<IGameObject> GetObjects();
     }
 }
