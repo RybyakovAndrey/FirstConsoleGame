@@ -5,14 +5,17 @@ namespace ConsoleGameEngine.Domain.Struct
 {
     public class Texture
     {
+        public Vector2 Size => new Vector2(Width, Height);
         public int Width { get; private set; }
         public int Height { get; private set; }
 
         private char[] m_buffer;
 
-        public Texture() : this(null) { }
-        public Texture(char[] buffer)
+        public Texture() : this(new char[0], 0, 0) { }
+        public Texture(char[] buffer, int width, int height)
         {
+            Width = width;
+            Height = height;
             m_buffer = buffer;
         }
 

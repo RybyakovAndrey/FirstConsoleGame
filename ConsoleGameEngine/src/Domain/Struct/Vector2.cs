@@ -27,12 +27,12 @@ namespace ConsoleGameEngine.Domain.Struct
 
         public static bool operator >(Vector2 a, Vector2 b)
         {
-            return (a.X + a.Y) > (b.X + b.Y);
+            return (a.X > b.X) && (a.Y > b.Y);
         }
 
         public static bool operator <(Vector2 a, Vector2 b)
         {
-            return !(a > b) && (a.X + a.Y != b.X + b.Y);
+            return !(a > b) && a != b;
         }
 
         public static bool operator >=(Vector2 a, Vector2 b)

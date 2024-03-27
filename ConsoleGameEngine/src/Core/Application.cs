@@ -21,7 +21,7 @@ namespace ConsoleGameEngine.Core
 
             // ----- Init System --------
             m_inputSystem = InputSystem.GetInputSystem(OnEvent);
-            m_camera2D = new Camera2D(new Vector2(150, 40), new Vector2(10, 10));
+            m_camera2D = new Camera2D(new Vector2(160, 40), new Vector2(10, -10));
 
             Log.CoreLogger.Logging("Create application engine", LogLevel.Info);
         }

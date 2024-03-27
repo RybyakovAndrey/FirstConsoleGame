@@ -29,9 +29,9 @@ namespace FirstConsoleGame
             if (e is KeyPressedEvent keyEvent)
             {
                 if (keyEvent.GetKeyCode() == KeyCode.W)
-                    m_direction.Y = -1;
-                else if (keyEvent.GetKeyCode() == KeyCode.S)
                     m_direction.Y = 1;
+                else if (keyEvent.GetKeyCode() == KeyCode.S)
+                    m_direction.Y = -1;
                 else if (keyEvent.GetKeyCode() == KeyCode.A)
                     m_direction.X = -1;
                 else if (keyEvent.GetKeyCode() == KeyCode.D)
