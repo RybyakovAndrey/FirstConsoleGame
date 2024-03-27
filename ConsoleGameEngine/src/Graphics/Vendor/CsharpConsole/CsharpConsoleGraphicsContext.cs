@@ -13,8 +13,8 @@ namespace ConsoleGameEngine.Graphics.Vendor.CsharpConsole
         {
             m_width = width;
             m_height = height;
-            Console.SetWindowSize(width, height + 1);
-            Console.SetBufferSize(width, height + 1);
+            Console.SetWindowSize(width, height + 2);
+            Console.SetBufferSize(width, height + 2);
             Console.CursorVisible = false;
             m_buffer = new char[m_width * m_height];
         }
