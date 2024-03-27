@@ -62,6 +62,21 @@ namespace ConsoleGameEngineTest.Domain
         }
 
         [TestCase]
+        public void CheckCalledRemoveComponentWhenDontHaveInGameObject()
+        {
+            EntryPoint.Initialization();
+            var gameObject = new FakeGameObject("TestObject");
+            var fakeComponent = new FakeComponent();
+            gameObject.RemoveComponent(fakeComponent);
+
+            var time = DateTime.Now;
+            var countTime = (time.Hour / 10 > 0 ? 1 : 0) + (time.Minute / 10 > 0 ? 1 : 0) + (time.Second / 10 > 0 ? 1 : 0) + 3;
+            var textLog = FileSystem.ReadFromFile(@$".\Log\log-date({time.Day}_{time.Month}_{time.Year}).txt", 0, 8 + countTime);
+            Assert.IsFalse(textLog is null);
+            Assert.IsTrue(textLog.Contains("(Warn)  ConsoleEngine: Error can't delete the component in TestObject of the type: FakeComponent"));
+        }
+
+        [TestCase]
         public void CheckCalledGetComponentWhenDontHaveComponentInGameObject()
         {
             EntryPoint.Initialization();
