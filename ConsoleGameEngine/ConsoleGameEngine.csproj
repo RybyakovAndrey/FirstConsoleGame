@@ -69,6 +69,7 @@
     <Compile Include="src\Graphics\GraphicsSystem.cs" />
     <Compile Include="src\Graphics\GraphicsType.cs" />
     <Compile Include="src\Graphics\MeshComponent.cs" />
+    <Compile Include="src\Graphics\UIComponent.cs" />
     <Compile Include="src\Graphics\Vendor\CsharpConsole\CsharpConsoleGraphicsContext.cs" />
     <Compile Include="src\Graphics\Vendor\CsharpConsole\CsharpConsoleGraphicsContextFactory.cs" />
     <Compile Include="src\Input\Factories\IMapperKeyCode.cs" />

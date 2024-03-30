@@ -2,6 +2,7 @@
 using ConsoleGameEngine.Domain.Component;
 using ConsoleGameEngine.Domain.GameObject;
 using ConsoleGameEngine.Domain.Struct;
+using ConsoleGameEngine.src.Graphics;
 
 namespace ConsoleGameEngine.Graphics
 {
@@ -40,6 +41,10 @@ namespace ConsoleGameEngine.Graphics
             {
                 RenderObject(gameObject);
             }
+            foreach (var gameObject in layer.GetObjects())
+            {
+                RenderUIObject(gameObject);
+            }
         }
 
         public void Render()
@@ -50,12 +55,17 @@ namespace ConsoleGameEngine.Graphics
         private void RenderObject(IGameObject gameObject)
         {
             var transform = gameObject.GetComponent<Transform>();
-            if (gameObject.GetComponent<MeshComponent>() is MeshComponent meshComponent)
-                if(CheckDrawObject(transform.Position, meshComponent.texture, out var newTexture))
+            if (gameObject.GetComponent<MeshComponent>() is MeshComponent meshComponent && meshComponent.IsActiveComponent())
+                if(CheckDrawObject(transform.Position, meshComponent.Texture, out var newTexture))
                     m_graphicsSystem.AddSprite(newTexture, ConvertPosition(transform.Position));
         }
 
-
+        private void RenderUIObject(IGameObject gameObject)
+        {
+            var transform = gameObject.GetComponent<Transform>();
+            if (gameObject.GetComponent<UIComponent>() is UIComponent uiComponent && uiComponent.IsActiveComponent())
+                m_graphicsSystem.AddSprite(uiComponent.TextureUI, transform.Position);
+        }
         private bool CheckDrawObject(Vector2 gameObjectPosition, Texture meshTexture, out Texture texture)
         {
             texture = new Texture();

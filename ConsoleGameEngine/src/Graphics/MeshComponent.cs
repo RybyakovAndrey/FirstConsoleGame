@@ -6,11 +6,11 @@ namespace ConsoleGameEngine.Graphics
 {
     public class MeshComponent : BaseComponent
     {
-        public Texture texture { get; set; }
+        public Texture Texture { get; set; }
 
         public MeshComponent()
         {
-            texture = new Texture();
+            Texture = new Texture();
         }
         public override void Start()
         {

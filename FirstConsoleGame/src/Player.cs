@@ -17,7 +17,7 @@ namespace FirstConsoleGame
             m_direction = Vector2.Zero;
             m_mesh = GameObject.GetComponent<MeshComponent>();
             m_transform = GameObject.GetComponent<Transform>();
-            m_mesh.texture.LoadTextureFromFileTxt(@".\src\Texture\player.txt");
+            m_mesh.Texture.LoadTextureFromFileTxt(@".\src\Texture\player.txt");
         }
         public override void Destroy()
         {
